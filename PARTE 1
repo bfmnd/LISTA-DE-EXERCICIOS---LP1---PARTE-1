@@ -1,0 +1,24 @@
+/*  Grupo F: Ana Beatriz Silva Firmino (SP3044157), Batriz Araújo dos Santos (SP3072401), Bernardo de Freitas Mendonça (SP3067394), Dayane da Silva Matias (SP307532X), Giovanna Alves da Silva (SP3065936), Gustavo Moraes Daun (SP3066029)*/
+import java.text.DecimalFormat;
+import javax.swing.JOptionPane;
+public class MediaConsumo {
+public static void main(String args[]){
+		int kmdir = 0, qtdgas = 0, litros = 0,kmcombinada = 0; 
+		double media;
+		String kilometragem, consumo;
+		kilometragem = JOptionPane.showInputDialog("Digite os km dirigidos ou -1 para sair: ");
+		kmdir = Integer.parseInt(kilometragem);
+		while (kmdir != -1){
+			consumo = JOptionPane.showInputDialog("Digite o combustível consumido: ");
+			qtdgas = Integer.parseInt(consumo);
+			kmcombinada = kmcombinada + kmdir;
+			litros = litros + qtdgas;
+			kilometragem = JOptionPane.showInputDialog("Digite os km dirigidos ou -1 para sair: ");
+			kmdir = Integer.parseInt(kilometragem);
+		}
+	DecimalFormat tresDigitos = new DecimalFormat ("0.000");
+	media = (double)kmcombinada/litros;
+	JOptionPane.showMessageDialog(null,"A média de consumo por km/lt é:"+tresDigitos.format(media)+"\n"+"O total de kilometragem é: "+kmcombinada+"\n"+"O total de gasolina consumido é: "+litros,"Média de Consumo", JOptionPane.INFORMATION_MESSAGE);
+	System.exit(0);
+	}
+}
